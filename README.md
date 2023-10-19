@@ -69,7 +69,8 @@ options:
 ```
 
 Confirm your device file, default is set to `/dev/ttyUSB0`  
-  + `DEFAULT_DEVICE_FILE` and `DEFAULT_DELAY` variables can be set inside script.
+  + `DEFAULT_DEVICE_FILE` and `DEFAULT_DELAY` variables can be set permanently inside script.
+  + **--device-file** and **--delay** are optional and override the defaults.
 
 #### Install dependencies;  
 `pip install -r requirements.txt` || `<your-pkg-manager> install pyserial`
@@ -80,7 +81,7 @@ python3 cisco-send.py <input_file> --device-file --delay
 ```
 
 Replace `<input_file>` with the path to the config file for the cisco device (Router/Switch)  
-  - --device-file and --delay are optional to override the defaults.
+
 
 You'll likely want to add the script to your `$PATH` ie. ~/.local/bin/ 
 
