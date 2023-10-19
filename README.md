@@ -70,8 +70,11 @@ You'll likely want to add the script to your `$PATH` ie. ~/.local/bin/
 The gns3-serial-bridge.sh script works in conjunction with cisco-send-gns3.py to connect a Cisco device in GNS3 to a local device file, similar to a regular serial connection to `/dev/ttyUSB0` etc.
 How to use:
 
+ + Start your Switch/Router device in GNS3. Right-click, select 'show node information'.  
+   Note the line `Console is on port 5000 and type is telnet`
  + Run ./gns3-serial-bridge.sh as a regular user.
- + You'll be prompted to provide a virtual device file name (default is ~/ttyCisco). Note that if you change the default, you must also update the device_file variable inside cisco-send-gns3.py.
+ + You'll be prompted to provide a virtual device file name (default is ~/ttyCisco).  
+   (Note that if you change the default, you must also update the device_file variable inside cisco-send-gns3.py)
  + Provide the GNS3 device telnet port number when prompted (default is 5000).
  + The script will then execute socat to map the provided telnet port to your virtual device file.
  + Optionally, you'll be asked if you would like to launch screen with 8N1 configuration.
