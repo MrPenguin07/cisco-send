@@ -121,9 +121,9 @@ Replace `<input_file>` with the path to the config file.
 - **Automatic Elevation:** Detects device state and elevates to (config)# mode automatically.
 - **Syslog Buffering:** Stores all syslog messages in a buffer.
 - **User Prompts:**
-      +  Asks if the user wants to print buffered syslog messages to the terminal.
-      +  Offers to save running-config to startup-config.
-      +  Provides an option to save syslog buffer to a local log file.
+  +  Asks if the user wants to print buffered syslog messages to the terminal.
+  +  Offers to save running-config to startup-config.
+  +  Provides an option to save syslog buffer to a local log file.
 - **Asks to write running-config to memory**: Save the new config to startup-config
 - **Command line switches**: to override default `--device-file` and `--delay`
 
