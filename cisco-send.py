@@ -188,6 +188,7 @@ user_response = input("Confirm sending config to device? yes/no (exit): ").strip
 if user_response in ['yes', 'y']:
     print(f"Reading {input_file}, sending line by line with delay of {delay_between_lines}")
 elif user_response in ['no', 'n']:
+    cleanup()
     print("Exiting the program.")
     exit()
 else:
