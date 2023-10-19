@@ -62,7 +62,7 @@ You'll likely want to add the script to your `$PATH` ie. ~/.local/bin/
 
 ### GNS3 Serial Bridge
 
-The gns3-serial-bridge.sh script works in conjunction with cisco-send-gns3.py to connect a Cisco device in GNS3 to your local terminal.
+The gns3-serial-bridge.sh script works in conjunction with cisco-send-gns3.py to connect a Cisco device in GNS3 to a local device file, similar to a regular serial connection to `/dev/ttyUSB0` etc.
 How to use:
 
  + Run ./gns3-serial-bridge.sh as a regular user.
