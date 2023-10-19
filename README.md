@@ -20,7 +20,7 @@ This repository contains both an advanced multi-threaded asynchronous python - a
   - [Bash Version](#bash-version)
 
 ## Files
-
+```
  .
 ├──  Bash-Version
 │  └──  cisco-send.sh
@@ -31,7 +31,7 @@ This repository contains both an advanced multi-threaded asynchronous python - a
 ├──  LICENSE
 ├──  README.md
 └──  requirements.txt
-
+```
 - **`cisco-send.py`**: Python script for sending config files to running-config.
 
 - **`cisco-send-gns3.py`**: GNS3 version of the script, send configs into virtual devices.
