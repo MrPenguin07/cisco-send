@@ -16,8 +16,6 @@ This repository contains both an advanced multi-threaded asynchronous python - a
 - [ ] support wiping device to clean state prior to sending config
 - [ ] sanitize log file strings for cleaner output (\b, \r etc.)
   
-
-
 ## Table of Contents
 
 - [Files](#files)
@@ -54,19 +52,34 @@ This repository contains both an advanced multi-threaded asynchronous python - a
 
 ### Python Script
 
-Confirm your device file, default is set to `/dev/ttyUSB0` - edit accordingly if required.
+```
+usage: cisco-send.py [-h] [--device-file DEVICE_FILE] [--delay DELAY] input_file
 
-Run the Python script using the following commands:
+Send a local config to a device over a serial/console connection.
 
-Install dependencies;
-`pip install -r requirements.txt` || `<your-pkg-manager> install pyserial`
+positional arguments:
+  input_file            Path to the config file for the Cisco device (Router/Switch).
 
-Run script;
-```bash
-python3 cisco-send.py <input_file>
+options:
+  -h, --help            show this help message and exit
+  --device-file DEVICE_FILE
+                        Path to device file. Default is --device-file /dev/ttyUSB0
+  --delay DELAY         Delay between sending lines, in seconds. Default is --delay 0.2s
 ```
 
-Replace `<input_file>` with the path to the config file for the cisco device (Router/Switch)
+Confirm your device file, default is set to `/dev/ttyUSB0`  
+  + `DEFAULT_DEVICE_FILE` and `DEFAULT_DELAY` variables can be set inside script.
+
+#### Install dependencies;  
+`pip install -r requirements.txt` || `<your-pkg-manager> install pyserial`
+
+#### Run script;
+```bash
+python3 cisco-send.py <input_file> --device-file --delay
+```
+
+Replace `<input_file>` with the path to the config file for the cisco device (Router/Switch)  
+  - --device-file and --delay are optional to override the defaults.
 
 You'll likely want to add the script to your `$PATH` ie. ~/.local/bin/ 
 
@@ -79,7 +92,7 @@ How to use:
    Note the line `Console is on port 5000 and type is telnet`
  + Run ./gns3-serial-bridge.sh as a regular user.
  + You'll be prompted to provide a virtual device file name (default is ~/ttyCisco).  
-   (Note that if you change the default, you must also update the device_file variable inside cisco-send-gns3.py)
+   (Note that if you change the default, you must also update the DEFAULT_DEVICE_FILE variable inside cisco-send-gns3.py)
  + Provide the GNS3 device telnet port number when prompted (default is 5000).
  + The script will then execute socat to map the provided telnet port to your virtual device file.
  + Optionally, you'll be asked if you would like to launch screen with 8N1 configuration.
@@ -110,6 +123,7 @@ Replace `<input_file>` with the path to the config file.
       +  Offers to save running-config to startup-config.
       +  Provides an option to save syslog buffer to a local log file.
 - **Asks to write running-config to memory**: Save the new config to startup-config
+- **Command line switches**: to override default `--device-file` and `--delay`
 
 ### Bash Version
 
