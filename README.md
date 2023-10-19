@@ -1,12 +1,17 @@
  # cisco-send scripts
 
-Send a local config to device over serial/console connection. 
+Send a local config to Cisco device over serial/console connection. 
 
-These scripts were created as an alternative to the cumbersome tftp and xmodem etc methods of sending configs. Copy pasting a config directly usually works for smaller configs however at a certain point configs are too large - data is sent too quickly and the device chokes, causing errors in the final config. 
+These scripts were created as an alternative to the cumbersome tftp and xmodem etc methods of sending configs.  
+Copy pasting a config directly usually works for smaller configs however at a certain point configs are too large - data is sent too quickly and the device chokes, causing errors in the final config.  
 
-Herein lies the simplicity of automation by script - read a local config and send it to the device, with a configurable delay between lines to prevent errors.
-
+Herein lies the simplicity of automation by script - read a local config and send it to the device, with a configurable delay between lines to prevent errors.  
 This repository contains both an advanced multi-threaded asynchronous python - and a simple Bash version of the script.
+
+#### TO-DO 
+- ask user to pull current config and write locally as backup
+- support wiping device to clean state prior to sending config
+
 
 ## Table of Contents
 
