@@ -8,7 +8,8 @@ These scripts were created as an alternative to the cumbersome tftp and xmodem e
 Copy pasting a config directly usually works for smaller configs however at a certain point configs are too large - data is sent too quickly and the device chokes, causing errors in the final config.  
 
 Herein lies the simplicity of automation by script - read a local config and send it to the device, with a configurable delay between lines to prevent errors.  
-This method does not require setting up an IP on the device for TFTP, an FTP server running on your end device - or xmodem voodoo magic sending data over 9600 baud prior to configuring a device.
+This method does not require setting up an IP on the device for TFTP, an FTP server running on your end device - or xmodem voodoo magic sending data over 9600 baud prior to configuring a device.  
+
 **Rapid deployment; wipe and send.**
 
 This repository contains both an advanced multi-threaded asynchronous python - and a simple Bash version of the script.
