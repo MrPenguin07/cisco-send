@@ -6,7 +6,9 @@ import os
 import re
 import threading
 import queue
+import argparse
 from datetime import datetime
+
 
 # Error checking function
 def check_error(condition, message):
@@ -15,19 +17,30 @@ def check_error(condition, message):
         cleanup()
         sys.exit(1)
 
-# Check if the correct number of arguments is provided
-check_error(len(sys.argv) == 2, "Usage: $ python3 cisco-send.py <input_file>")
+DEFAULT_DEVICE_FILE = '/dev/ttyUSB0'
+DEFAULT_DELAY = 0.2
+
+# Command-line argument parsing
+parser = argparse.ArgumentParser(description='Send a local config to a device over a serial/console connection.')
+
+# Mandatory argument
+parser.add_argument('input_file', type=str, help='Path to the config file for the Cisco device (Router/Switch).')
+
+# Optional arguments
+parser.add_argument('--device-file', type=str, default=DEFAULT_DEVICE_FILE, help=f'Path to device file. Default is --device-file {DEFAULT_DEVICE_FILE}')
+parser.add_argument('--delay', type=float, default=DEFAULT_DELAY, help=f'Delay between sending lines, in seconds. Default is --delay {DEFAULT_DELAY}s')
+
+# Parse the arguments
+args = parser.parse_args()
+
+input_file = args.input_file
+device_file = args.device_file
+delay_between_lines = args.delay
 
 # Check the input file exists and is readable
-input_file = sys.argv[1]
 check_error(os.path.isfile(input_file), f"File not found or not readable: {input_file}")
 
-# Configure variables
-# Adjust the delay (in seconds)
-delay_between_lines = 0.2
-
 # Set variables and serial interface to "8N1"
-device_file = /dev/ttyUSB0
 baud_rate = 9600
 data_bits = 8
 parity = serial.PARITY_NONE
@@ -35,10 +48,10 @@ stop_bits = serial.STOPBITS_ONE
 
 # Configure the serial port
 print("------------")
-print(f"Setting serial port baud, parity, and stop bits to '8N1' on {device_file}")
+print(f"Setting serial port baud, parity, and stop bits to '8N1' on {args.device_file}")
 
 try:
-    ser = serial.Serial(device_file, baudrate=baud_rate, bytesize=data_bits, parity=parity, stopbits=stop_bits, rtscts=False, timeout=1)
+    ser = serial.Serial(args.device_file, baudrate=baud_rate, bytesize=data_bits, parity=parity, stopbits=stop_bits, rtscts=False, timeout=1)
 except Exception as e:
     check_error(False, f"Failed to set serial port parameters: {str(e)}")
 
