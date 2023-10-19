@@ -81,7 +81,7 @@ Confirm your device file, default is set to `/dev/ttyUSB0`
 
 #### Run script;
 ```bash
-python3 cisco-send.py <input_file> --device-file --delay
+python3 cisco-send.py <input_file>
 ```
 
 Replace `<input_file>` with the path to the config file for the cisco device (Router/Switch)  
