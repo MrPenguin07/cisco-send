@@ -1,6 +1,11 @@
+<p align="center">
+  <img src="https://github.com/MrPenguin07/cisco-send/assets/127086564/afb724e9-8302-41f9-a461-0057d2348ed3" alt="cisco-send-128x128" />
+</p>
 
-![cisco-send-128x128](https://github.com/MrPenguin07/cisco-send/assets/127086564/afb724e9-8302-41f9-a461-0057d2348ed3)
-# cisco-send scripts
+<h1 align="center">
+  cisco-send scripts
+</h1>
+
 
 Send a local config to Cisco device over serial/console connection. 
 
