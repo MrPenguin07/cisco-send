@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-  cisco-send scripts
+  Cisco-send scripts
 </h1>
 
 
@@ -125,8 +125,8 @@ Replace `<input_file>` with the path to the config file.
 
 ### Python Version
 
-- **Asynchronous Reading**: Uses a separate thread to read from the serial port and print syslog messages asynchronously.
-- **User Authentication:** Handles username and password authentication if required.
+- **Asynchronous Reading**: Uses a separate thread to read from the serial port and print syslog messages.
+- **User Authentication:** Detects & then handles password authentication if required.
 - **Automatic Elevation:** Detects device state and elevates to (config)# mode automatically.
 - **Syslog Buffering:** Stores all syslog messages in a buffer.
 - **User Prompts:**
