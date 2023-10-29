@@ -22,6 +22,7 @@ This repository contains both an advanced multi-threaded asynchronous python - a
 #### TO-DO 
 - [ ] add SSH & possibly telnet support
 - [ ] ask user to pull current config and write locally as backup
+      (and/or create backup in flash: )
 - [ ] support wiping device to clean state prior to sending config
 - [ ] sanitize log file strings for cleaner output (\b, \r etc.)
 - [ ] handle keyboard interrupts & exception handling when --device-file invalid
