@@ -20,7 +20,7 @@ This method does not require setting up an IP on the device for TFTP, an FTP ser
 This repository contains both an advanced multi-threaded asynchronous python - and a simple Bash version of the script.
 
 #### TO-DO 
-- [ ] ask user to pull current config and write locally as backup
+- [ ] ask user to pull current config and write locally as backup  
       (and/or create backup in flash: )
 - [ ] support wiping device to clean state prior to sending config
 - [ ] sanitize log file strings for cleaner output (\b, \r etc.)
