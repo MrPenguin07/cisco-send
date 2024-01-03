@@ -9,22 +9,15 @@
 
 Send a local config to Cisco device over serial/console connection. 
 
-These scripts were created as an alternative to the cumbersome tftp and xmodem etc methods of sending configs.  
+Created as an alternative to the cumbersome tftp and xmodem etc methods of sending configs.  
 Copy pasting a config directly usually works for smaller configs however at a certain point configs are too large - data is sent too quickly and the device chokes, causing errors in the final config.  
 
 Herein lies the simplicity of automation by script - read a local config and send it to the device, with a configurable delay between lines to prevent errors.  
-This method does not require setting up an IP on the device for TFTP, an FTP server running on your end device - or xmodem voodoo magic sending data over 9600 baud prior to configuring a device.  
+This method does not require setting up an IP on the device for TFTP/SSH etc, or xmodem voodoo magic sending data over 9600 baud prior to configuring a device.  
 
 **Rapid deployment; wipe and send.**
 
 This repository contains both an advanced multi-threaded asynchronous python - and a simple Shell version of the script.
-
-#### TO-DO 
-- [ ] ask user to pull current config and write locally as backup  
-      (and/or create backup in flash: )
-- [ ] support wiping device to clean state prior to sending config
-- [ ] sanitize log file strings for cleaner output (\b, \r etc.)
-- [ ] handle keyboard interrupts & exception handling when --device-file invalid
   
 ## Table of Contents
 
@@ -94,7 +87,21 @@ Replace `<input_file>` with the path to the config file for the cisco device (Ro
 
 You'll likely want to add the script to your `$PATH` ie. ~/.local/bin/ 
 
-### GNS3 Serial Bridge
+---
+### Shell Script
+
+Run the Shell script using the following command:
+
+```shell
+chmod +x cisco-send.sh
+./cisco-send.sh <input_file>
+```
+
+Replace `<input_file>` with the path to the config file.
+
+---
+### GNS3 Serial Bridge 
+#### (for testing/virtual devices)
 
 The gns3-serial-bridge.sh script works in conjunction with cisco-send-gns3.py to connect a Cisco device in GNS3 to a local device file, similar to a regular serial connection to `/dev/ttyUSB0` etc.
 How to use:
@@ -110,16 +117,7 @@ How to use:
 
 Now the GNS3 device can be treated as a regular serial device - connecting with other terminal programs, or executing the cisco-send-gns3.py script.
 
-### Shell Script
 
-Run the Shell script using the following command:
-
-```shell
-chmod +x cisco-send.sh
-./cisco-send.sh <input_file>
-```
-
-Replace `<input_file>` with the path to the config file.
 
 ## Features
 
@@ -141,3 +139,12 @@ Replace `<input_file>` with the path to the config file.
 - **No External Dependencies**: Doesn't require any additional libraries.
 - **No support if require credentials to enter Config# mode**: Start with fresh device, wipe it, or manually enter # prompt prior to running script.
 - **No support for printing syslog messages**: No syslog response returned to console due to shell single thread limitations.
+
+---
+
+#### TO-DO 
+- [ ] ask user to pull current config and write locally as backup  
+      (and/or create backup in flash: )
+- [ ] support wiping device to clean state prior to sending config
+- [ ] sanitize log file strings for cleaner output (\b, \r etc.)
+- [ ] handle keyboard interrupts & exception handling when --device-file invalid
